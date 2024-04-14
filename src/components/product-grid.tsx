@@ -1,12 +1,16 @@
-import Product from './product';
+import { AppRouter, SyncProduct } from '@/trpc';
+import { Productv2 } from './product-v2';
 
-const ProductGrid = ({ products }) => {
+type Props = {
+  products?: SyncProduct[];
+};
+const ProductGrid = ({ products }: Props) => {
   if (!products || products.length === 0) return null;
 
   return (
     <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
       {products.map((product) => (
-        <Product key={product.id} {...product} />
+        <Productv2 key={product.id} product={product} />
       ))}
     </div>
   );
