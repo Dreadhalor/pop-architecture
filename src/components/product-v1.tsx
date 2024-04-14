@@ -3,14 +3,15 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
-import VariantPicker from './variant-grid';
-import { SyncProduct } from '@/trpc';
+import VariantPicker from './variant-picker';
+import { SyncProductV1 } from '@/trpc';
+import { Button } from '@ui/button';
 
 type Props = {
-  product: SyncProduct;
+  product: SyncProductV1;
 };
-const Product = ({ product }: Props) => {
-  const { id, name, variants } = product;
+export const ProductV1 = ({ product }: Props) => {
+  const { name, variants } = product;
   const [firstVariant] = variants;
   const oneStyle = variants.length === 1;
 
@@ -18,25 +19,25 @@ const Product = ({ product }: Props) => {
     firstVariant.external_id
   );
 
-  const activeVariant = variants.find(
-    (v) => v.external_id === activeVariantExternalId
-  );
+  const activeVariant =
+    variants.find((v) => v.external_id === activeVariantExternalId) ||
+    firstVariant;
 
-  const activeVariantFile = activeVariant.files.find(
+  const activeVariantFile = activeVariant?.files?.find(
     ({ type }) => type === 'preview'
   );
 
   const formattedPrice = new Intl.NumberFormat('en-US', {
     style: 'currency',
-    currency: activeVariant.currency,
-  }).format(activeVariant.retail_price);
+    currency: activeVariant?.currency || 'USD',
+  }).format(Number.parseFloat(activeVariant.retail_price || '0'));
 
   return (
     <article className='border border-gray-200 rounded bg-white flex flex-col relative'>
       <div className='flex items-center justify-center flex-1 sm:flex-shrink-0 w-full p-6'>
         {activeVariantFile && (
           <Image
-            src={activeVariantFile.preview_url}
+            src={activeVariantFile.preview_url || ''}
             className='w-[250px] h-[250px]'
             width={800}
             height={800}
@@ -60,20 +61,19 @@ const Product = ({ product }: Props) => {
           variants={variants}
           disabled={oneStyle}
         />
-        <button
+        {/* <button
           className='snipcart-add-item w-full md:w-auto transition flex-shrink-0 py-2 px-4 border border-gray-300 hover:border-transparent shadow-sm text-sm font-medium bg-white text-gray-900 focus:text-white hover:bg-blue-600 hover:text-white focus:bg-blue-600 focus:outline-none rounded'
           data-item-id={activeVariantExternalId}
           data-item-price={activeVariant.retail_price}
           data-item-url={`/api/products/${activeVariantExternalId}`}
           data-item-description={activeVariant.name}
-          data-item-image={activeVariantFile.preview_url}
+          data-item-image={activeVariantFile?.preview_url || ''}
           data-item-name={name}
         >
           Add to Cart
-        </button>
+        </button> */}
+        <Button>Add to cart</Button>
       </div>
     </article>
   );
 };
-
-export default Product;
