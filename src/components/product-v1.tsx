@@ -52,12 +52,10 @@ export const ProductV1 = ({ product }: Props) => {
           <p className='text-sm text-gray-500'>{formattedPrice}</p>
         </div>
       </div>
-      <div className='p-3 flex flex-col sm:flex-row justify-center items-center'>
+      <div className='p-3 flex flex-col sm:flex-row justify-center items-center gap-2'>
         <VariantPicker
           value={activeVariantExternalId}
-          onChange={({ target: { value } }) =>
-            setActiveVariantExternalId(value)
-          }
+          onChange={setActiveVariantExternalId}
           variants={variants}
           disabled={oneStyle}
         />
@@ -72,7 +70,7 @@ export const ProductV1 = ({ product }: Props) => {
         >
           Add to Cart
         </button> */}
-        <Button>Add to cart</Button>
+        <Button disabled>Add to cart</Button>
       </div>
     </article>
   );
