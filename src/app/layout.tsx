@@ -5,6 +5,7 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
+import { TRPCProvider } from '@/trpc/trpc-provider';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -29,11 +30,13 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <Header />
-        <main className='py-6 md:py-12 flex-1'>
-          <div className='max-w-6xl mx-auto px-6'>{children}</div>
-        </main>
-        <Footer />
+        <TRPCProvider>
+          <Header />
+          <main className='py-6 md:py-12 flex-1'>
+            <div className='max-w-6xl mx-auto px-6'>{children}</div>
+          </main>
+          <Footer />
+        </TRPCProvider>
       </body>
     </html>
   );

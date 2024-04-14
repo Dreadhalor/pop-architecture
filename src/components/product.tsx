@@ -33,8 +33,9 @@ const Product = (product) => {
         {activeVariantFile && (
           <Image
             src={activeVariantFile.preview_url}
-            width={250}
-            height={250}
+            className='w-[250px] h-[250px]'
+            width={800}
+            height={800}
             alt={`${activeVariant.name} ${name}`}
             title={`${activeVariant.name} ${name}`}
           />

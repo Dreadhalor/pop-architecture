@@ -1,7 +1,6 @@
 import Product from './product';
 
 const ProductGrid = ({ products }) => {
-  console.log('products', products);
   if (!products || products.length === 0) return null;
 
   return (
