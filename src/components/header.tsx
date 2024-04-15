@@ -16,12 +16,14 @@ export const Header = () => {
               About
             </Link>
           </nav>
-          <div className='flex-1 flex items-center justify-center'>
+          <div className='flex-1 flex items-center justify-center col-span-2 sm:col-span-1'>
             <Link href='/' className='flex items-center text-gray-900'>
               <div className='rounded-full w-12 h-12 flex items-center justify-center mr-4'>
-                <PopArchitectureLogo />
+                <PopArchitectureLogo className='h-10 w-10 shrink-0' />
               </div>
-              <span className='text-lg font-medium'>POP Architecture</span>
+              <span className='text-lg font-medium w-max'>
+                POP Architecture
+              </span>
             </Link>
           </div>
           {/* <HeaderUserActions /> */}
