@@ -46,10 +46,16 @@ const About = () => {
             residencies, and gallery showcases.
           </p>
           <p className='text-lg leading-relaxed'>
-            Annie is also the creator and designer of Pop Architecture: a brand
-            of pop-art and architectural products for the everyday. Part art and
-            architecture, Pop Architecture is the one-stop shop for any designer
-            or appreciator to elevate their basics.
+            Annie is also the creator and designer of{' '}
+            <a
+              href='https://anniehetrickdahm.art/shop'
+              className='text-blue-600 hover:text-blue-400'
+            >
+              Pop Architecture
+            </a>
+            : a brand of pop-art and architectural products for the everyday.
+            Part art and architecture, Pop Architecture is the one-stop shop for
+            any designer or appreciator to elevate their basics.
           </p>
         </div>
       </div>
