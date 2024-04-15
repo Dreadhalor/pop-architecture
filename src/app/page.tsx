@@ -1,5 +1,3 @@
-'use client';
-
 import { ProductGridV1 } from '@/components/product-grid-v1';
 
 export default function Home() {

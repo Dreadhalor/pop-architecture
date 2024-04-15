@@ -1,4 +1,5 @@
-import { SyncProductV1 } from '@/trpc';
+'use client';
+
 import { ProductV1, ProductV1Placeholder } from './product-v1';
 import { trpc } from '@/trpc/client';
 

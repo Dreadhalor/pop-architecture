@@ -11,7 +11,7 @@ export const Footer = () => {
           </p>
           <nav className='flex items-center justify-between md:space-x-6'>
             <Link
-              href='/terms-of-sale'
+              href='#'
               className='text-gray-600 hover:text-blue-600 p-1 transition text-sm'
             >
               Terms of Sale
