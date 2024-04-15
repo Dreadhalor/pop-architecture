@@ -75,3 +75,27 @@ export const ProductV1 = ({ product }: Props) => {
     </article>
   );
 };
+
+export const ProductV1Placeholder = () => {
+  return (
+    <article className='border border-gray-200 rounded bg-white flex flex-col relative'>
+      <div className='flex items-center justify-center flex-1 sm:flex-shrink-0 w-full p-6'>
+        <div className='w-[250px] h-[250px] bg-gray-200 animate-pulse' />
+      </div>
+      <div className='flex-1 p-6 pt-0'>
+        <div className='text-center'>
+          <p className='mb-1 font-semibold text-gray-900'>Loading...</p>
+          <p className='text-sm text-gray-500'>Loading...</p>
+        </div>
+      </div>
+      <div className='p-3 flex flex-col sm:flex-row justify-center items-center gap-2'>
+        <div className='w-full sm:w-1/2'>
+          <div className='h-12 bg-gray-200 animate-pulse' />
+        </div>
+        <div className='w-full sm:w-1/2'>
+          <div className='h-12 bg-gray-200 animate-pulse' />
+        </div>
+      </div>
+    </article>
+  );
+};
